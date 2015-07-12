@@ -1,12 +1,16 @@
 ﻿Imports System.ComponentModel
 Imports System.Threading
 
+''' <summary>
+''' Generic class that implements INotifyPropertyChanged
+''' </summary>
+''' <remarks></remarks>
 Public Class Widget
     Implements INotifyPropertyChanged
     Public Event PropertyChanged(sender As Object, e As PropertyChangedEventArgs) Implements INotifyPropertyChanged.PropertyChanged
 
     ''' <summary>
-    ''' Set once in application, we need a reference to the UI Thread SynchronizationContext
+    ''' Set once in application, we need a reference to the UI Thread SynchronizationContext so we can raise PropertyChanged in UI thread
     ''' </summary>
     ''' <remarks></remarks>
     Public Shared UIThreadContext As SynchronizationContext

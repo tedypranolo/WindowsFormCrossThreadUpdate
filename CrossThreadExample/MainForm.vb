@@ -35,6 +35,7 @@ Public Class MainForm
                 w.Title = "New"
                 w.Content = "New widget"
                 workset.Widget = w
+
             Case workset.Actions.Update
                 workset.Widget.Title = "Updated widget"
                 workset.Widget.Content = String.Format("Updated on {0}", Now)
@@ -46,6 +47,7 @@ Public Class MainForm
         Dim workset = TryCast(e.Result, Workset)
         Select Case workset.Action
             Case workset.Actions.Add
+                'Add the new widget to BindingList
                 Widgets.Add(workset.Widget)
         End Select
     End Sub
